@@ -21,6 +21,30 @@ def compare_hundred():
     else:
         print("greater than 100")
 
+def math():
+    first = input("please enter an int: ")
+    while not isinstance(first, int):
+        first = input("entry must be an int: ")
+    
+    second = input("please enter another int: ")
+    while not isinstance(second, int):
+        second = input("entry must be an int: ")
+
+    decision = input("[1] add\n[2] subtract\n[3] multiply\n[4] divide")
+    while decision != 1 and decision != 2 and decision != 3 and decision != 4:
+        decision = input("please enter 1,2,3, or 4")
+
+    if decision == 1:
+        return first + second
+    elif decision == 2:
+        return first - second
+    elif decision == 3:
+        return first * second
+    else:
+        return first / second
+    
+    
+
 def janken():
     janken_list = ["rock", "paper", "scissors"]
     user_result = input("enter rock, paper, or scissors: ")
@@ -49,6 +73,23 @@ def janken():
             print("you lose")
         else:
             print("you win")
+
+def bubbleSort(list_to_sort):
+    if not isinstance(list_to_sort, list):
+        return
+
+    print(list_to_sort)
+    
+    for i in range(0, len(list_to_sort)):
+        for j in range(i, len(list_to_sort)):
+            if list_to_sort[i] > list_to_sort[j]:
+                temp = list_to_sort[j]
+                list_to_sort[j] = list_to_sort[i]
+                list_to_sort[i] = temp
+    print(list_to_sort)
+
+
+    
 
 def blackjack():
     dealt = blackjack_check(random.randint(1, 13), 0)
@@ -115,7 +156,9 @@ def blackjack_check(val, total):
 
     return int(val)
 
-blackjack()
+print(math())
+#bubbleSort([1,4,3,6,2,1,7,5,0,2,7,3,2,3,3,5,9])
+#blackjack()
 #janken()
 #compare_hundred()
 #show_input()
